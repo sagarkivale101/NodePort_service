@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custdeployment
+  labels:
+    app: custdeployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: custdeployment
+  template:
+    metadata:
+      labels:
+        app: custdeployment
+    spec:
+      containers:
+      - name: custdeployment
+        image: samk101/nodeserver
+        ports:
+        - containerPort: 3000
